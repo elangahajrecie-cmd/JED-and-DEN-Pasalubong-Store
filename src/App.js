@@ -509,7 +509,7 @@ function ProductsPage({ onOrder }) {
     <main className="page-container">
       <div className="page-heading">
         <p className="eyebrow">PRODUCTS</p>
-        <h1>Products and Services</h1>
+        <h1>Products</h1>
         <p>Browse classic pasalubong favorites, local sweets, breads, and giftable treats.</p>
       </div>
 

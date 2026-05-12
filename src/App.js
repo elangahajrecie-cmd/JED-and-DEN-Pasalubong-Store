@@ -287,7 +287,7 @@ function App() {
       order.customerName,
       order.contactNumber,
       order.email || '',
-      order.items.map((item) => `${item.name} - ${item.option} x ${item.quantity}`).join('; '),
+      order.items.map((item) => `${item.name} - ${formatOrderItem(item)} x ${item.quantity}`).join('; '),
       order.totalAmount,
       order.paymentMethod,
       formatDateTime(order.pickupDateTime),
@@ -644,6 +644,7 @@ function OrderPage({ onSubmitOrder }) {
     pickupDateTime: '',
   });
   const [productId, setProductId] = useState(products[0].id);
+  const [variantLabel, setVariantLabel] = useState(products[0].variants[0]);
   const [optionLabel, setOptionLabel] = useState(products[0].options[0].label);
   const [quantity, setQuantity] = useState(1);
   const [items, setItems] = useState([]);
@@ -651,6 +652,8 @@ function OrderPage({ onSubmitOrder }) {
   const [error, setError] = useState('');
 
   const selectedProduct = products.find((product) => product.id === productId) || products[0];
+  const selectedVariant =
+    selectedProduct.variants.find((variant) => variant === variantLabel) || selectedProduct.variants[0];
   const selectedOption =
     selectedProduct.options.find((option) => option.label === optionLabel) || selectedProduct.options[0];
   const totalAmount = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -658,14 +661,16 @@ function OrderPage({ onSubmitOrder }) {
   const updateProduct = (nextProductId) => {
     const nextProduct = products.find((product) => product.id === nextProductId) || products[0];
     setProductId(nextProduct.id);
+    setVariantLabel(nextProduct.variants[0]);
     setOptionLabel(nextProduct.options[0].label);
   };
 
   const addItem = () => {
     const nextItem = {
-      id: `${selectedProduct.id}-${selectedOption.label}`,
+      id: `${selectedProduct.id}-${selectedVariant}-${selectedOption.label}`,
       productId: selectedProduct.id,
       name: selectedProduct.name,
+      variant: selectedVariant,
       option: selectedOption.label,
       price: selectedOption.price,
       quantity: Math.max(1, Number(quantity) || 1),
@@ -814,6 +819,16 @@ function OrderPage({ onSubmitOrder }) {
               </select>
             </label>
             <label>
+              Variant
+              <select value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)}>
+                {selectedProduct.variants.map((variant) => (
+                  <option key={variant} value={variant}>
+                    {variant}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
               Size or Item
               <select value={optionLabel} onChange={(event) => setOptionLabel(event.target.value)}>
                 {selectedProduct.options.map((option) => (
@@ -847,7 +862,7 @@ function OrderPage({ onSubmitOrder }) {
                   <div className="summary-row" key={item.id}>
                     <div>
                       <strong>{item.name}</strong>
-                      <span>{item.option}</span>
+                      <span>{formatOrderItem(item)}</span>
                     </div>
                     <input
                       aria-label={`${item.name} quantity`}
@@ -919,7 +934,7 @@ function OrderConfirmation({ onNewOrder, order }) {
           <ul>
             {order.items.map((item) => (
               <li key={item.id}>
-                {item.name} ({item.option}) x {item.quantity}
+                {item.name} ({formatOrderItem(item)}) x {item.quantity}
               </li>
             ))}
           </ul>
@@ -1079,7 +1094,7 @@ function AdminDashboard({ analytics, onDeleteOrder, onExportOrders, onUpdateStat
                     <td>
                       {order.items.map((item) => (
                         <span className="item-chip" key={item.id}>
-                          {item.name} {item.option} x{item.quantity}
+                          {item.name} {formatOrderItem(item)} x{item.quantity}
                         </span>
                       ))}
                     </td>
@@ -1170,6 +1185,18 @@ function csvCell(value) {
   return `"${String(value ?? '').replaceAll('"', '""')}"`;
 }
 
+function formatOrderItem(item) {
+  if (!item) {
+    return '';
+  }
+
+  if (item.variant) {
+    return `${item.variant} - ${item.option}`;
+  }
+
+  return item.option || '';
+}
+
 function getAnalytics(orders) {
   const now = new Date();
   const totalRevenue = orders.reduce((sum, order) => sum + Number(order.totalAmount || 0), 0);
@@ -1195,7 +1222,7 @@ function getAnalytics(orders) {
     customerMap.set(customerName, (customerMap.get(customerName) || 0) + 1);
 
     order.items.forEach((item) => {
-      const key = `${item.name} (${item.option})`;
+      const key = `${item.name} (${formatOrderItem(item)})`;
       productMap.set(key, (productMap.get(key) || 0) + Number(item.quantity || 0));
     });
   });

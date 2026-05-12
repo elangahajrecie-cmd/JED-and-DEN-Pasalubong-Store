@@ -1,0 +1,325 @@
+﻿Build me a complete, fully functional **multi-page e-commerce website** as a single React artifact with the following specifications. Use React state for navigation between pages (no external routing). The site should be visually polished, mobile-responsive, and production-ready.
+
+
+---
+
+
+## 🏢 BUSINESS INFORMATION
+
+
+- **Business Name: JED and DEN Pastries
+- **Tagline / Slogan: “Pasalubong Made with Love, Shared with Joy.”
+- **Business Type: Pasalubong Store
+- **Location / Area Served: Trade town, Dalipe San Jose de Buenavista, Antique 
+- **Contact Number:09936206328
+- **Business Hours: Monday–Sunday, 8AM–6PM
+- **Currency: Philippine Peso
+- **Payment Methods Accepted: Cash
+
+
+---
+
+
+## 🎨 DESIGN PREFERENCES
+
+
+- **Color Scheme: Warm browns and white 
+- **Overall Vibe / Aesthetic: Homey and warm / brown and white
+- **Logo or Icon (describe it): JED and DEN Pastries
+- **Any fonts you like: Clean and modern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 📄 PAGE 1 — HOME PAGE
+
+
+### Hero Section
+- **Headline: “Pasalubong Made with Love"
+- **Sub-headline: “Sharing authentic flavors and heartfelt memories in every bite.”
+- **Call-to-Action Button Text: " Grab Your Pasalubong Now!"
+### About the Business Section
+- **Story / Description: Our pasalubong business started in 1999 with a passion for creating authentic local delicacies made from quality ingredients and traditional methods. The family began by producing their own muscovado products, wash bandi, coconut delicacies, peanut treats, and other local varieties that became loved by customers and travelers alike. As the Trade Town Dalipe opened and the demand for their products continued to grow, they decided to establish a physical store to make their products more accessible to the community and visitors. Guided by tradition, quality, and heartfelt service, the business continues to share proudly local flavors that bring joy, memories, and the spirit of Filipino pasalubong culture.
+- **Why Choose Us (3–5 bullet points):
+  - Trusted pasalubong store since 1999
+  - Made from authentic local ingredients and traditional recipe
+  - Offer wide variety of pasalubong products
+  - Affordable pasalubong 
+  - Fresh and high quality pasalubong products.
+
+
+---
+
+
+## 📦 PAGE 2 — PRODUCTS & SERVICES PAGE
+
+
+List all your products/services below. Follow this format for each item:
+
+
+### Product/Service 1
+- **Name: Piaya
+- **Category: Flat Pastry
+- **Description: Piaya original is a traditional flat pastry filled with muscovado sugar. It has a thins and soft crust with a slightly crispy texture and a sweet caramel like filling.
+- **Price:** ₱90 big, ₱50 medium, ₱35 small
+- **Available Variants:** Original, Ube, Mango
+- **Available Brands:** Bonbong’s, Merzci
+- **Stock Status:** Available
+
+
+### Product/Service 2
+- **Name:** Peanut Bandi
+- **Category:** Native Sweets
+- **Description:** Peanut Bandi is a crunchy and sweet snack made from roasted peanuts coated with caramelized sugar.
+- **Price:** ₱50 big, ₱25 medium, ₱10 small
+- **Available Variants:** Muscovado and Wash
+- **Available Brands: ** Local Homemade products
+- **Stock Status:** Available
+
+
+
+
+
+
+### Product/Service 3
+- **Name:** Coconut Bandi
+- **Category:** Coconut Candy
+- **Description:** Coconut bandi with muscovado sugar is a traditional coconut delicacy with a dark color, chewy texture, and rich caramel like sweetness from unrefined brown sugar 
+- **Price:** ₱25 per pack
+- **Available Variants:** Coconut Bandi (Wash)
+-**Available Brands:** Local homemade
+- **Stock Status:** Available
+
+
+### Product/Service 4
+- **Name:** Biscocho
+- **Category:** Baked Snack
+- **Description:** Biscocho is a popular Filipino snack consisting of sliced bread that is coated in a sugar and twice baked until perfectly crunchy.
+- **Price:** ₱70 Medium, ₱140 Large, ₱80 medium (Garlic), ₱200 large, ₱100 medium (Wewins)
+- **Available Variants:** Original and Garlic
+**Available Brands:** Bongbong’s amd Wewins 
+- **Stock Status:** Available
+
+
+### Product/Service 5
+- **Name:** Mamon Tostado
+- **Category:** Sponge Cake
+- **Description:** Mamon is a soft and fluffy sponge cake with a light    buttery and slightly sweet flavor
+- **Price:** ₱140 Large, ₱70 medium
+- **Available Variants:** Original
+**Available Brands:** Bongbong’s 
+- **Stock Status:** Available
+
+
+
+
+### Product/Service 6
+- **Name:** Premium Filipino Pasalubong (Single items)
+- **Category:** Premium Pasalubong
+- **Description:** A premium selection of well-loved Filipino pasalubong snacks made with quality ingredients and traditional recipes. These treats offer a mix of sweet, crunchy, and caramelized flavors, perfect for gifting and special occasions.
+- **Price:** Meringue - ₱85 pack
+             Butterscotch - ₱100 pack
+                  Pinasugbo – ₱35 pack
+             Dried Mangoes - ₱135 pack
+             Banana Chips – ₱35 pack 
+- **Available Variants:** Original, Extra Crunch, Classic Sweetened
+**Available Brands:** Bongbong's, Merzci, N’s (Local Brand)
+- **Stock Status:** Available
+
+
+
+
+
+
+
+
+
+
+### Product/Service 7
+- **Name:** Traditional Filipino Bread Single items)
+- **Category:** Pasalubong Bread 
+- **Description:** A selection of freshly baked traditional Filipino breads known for their soft texture, sweet flavor, and nostalgic homemade taste. These breads are commonly enjoyed as snacks, breakfast items, or pasalubong treats.
+- **Price:** Catalugan - ₱25 pack
+             Ensaymada - ₱25 pack
+                  Sambag  – ₱80 pack
+             Ugoy - Ugoy - ₱35 pack
+             Pan De Rosa – ₱85 pack 
+             Mongo Loaf - ₱65 pack
+             Teren - Teren - ₱25 pack
+             Otap - ₱35 pack
+- **Available Variants:** Original, Cheese Filled, Buttered, Sweet Mongo
+**Available Brands:** Bongbong’s, Wewins, Tibiao Bakery, Angelina, N’s
+- **Stock Status:** Available
+
+
+
+
+
+
+### Product/Service 8
+- **Name:** Assorted Filipino Pasalubong Sweets (Single items)
+- **Category:** Filipino Pasalubong / Native Delicacies
+- **Description:** A variety of traditional Filipino sweets made from coconut, rice flour, ube, and tamarind. Perfect for souvenirs or everyday treats, offering authentic local flavors in convenient packaged form.
+- **Price:** Macapuno - ₱15 pack
+             Puto Seko - ₱8 pack
+                  Chocolate Cacao Tablea – ₱60 pack
+             Peanut Tablea - ₱35 pack
+             Ube bar & Ube Balls – ₱25 pack 
+             Barquiron - ₱35 pack
+             Sampalok Candy - ₱25 pack
+             Serafina - ₱35 pack
+             Butong – Butong (Dried & Sticky) - ₱25 pack
+             Chicharon - ₱30 pack
+- **Available Variants:** Original homemade recipe
+**Available Brands:** Local pasalubong producer
+- **Stock Status:** Available
+
+
+
+
+---
+
+
+## 🛍️ PAGE 3 — ORDERING PAGE (Checkout)
+
+
+- **Order Form Fields to Include:**
+  - [x] Customer Full Name
+  - [x] Contact Number
+  - [x] Email Address (optional)
+  - [x] Product Selection + Quantity
+  - [x] Special Instructions / Notes
+  - [x] Preferred Payment Method
+  - [x] Preferred Pick Up Date & Time
+
+
+- **Order Confirmation Message:** Thank you for ordering from JED and DEN Pasalubong Store
+Your order has been successfully received.
+
+
+We will contact you within 2 hours to confirm your order details and availability. Please ensure your contact number is active so we can reach you quickly for confirmation.
+
+
+For urgent orders or inquiries, you may call us at 09936206328
+We truly appreciate your support for our local Filipino pasalubong delicacies.
+
+
+- **After Order Submission — What should happen?**
+  - [x] Show a confirmation screen with order summary
+  - [x] Save order to the admin dashboard
+  
+---
+
+
+## 🔐 PAGE 4 — ADMIN DASHBOARD (Password Protected)
+
+
+- **Admin Password:** PASALUBONG 2K26
+- **Admin Page Title:** JED and Den Pasalubong Admin Panel
+
+
+### Orders Section (Auto-populated from customer orders)
+The admin should see a table with all submitted orders showing:
+  - [x] Order Number (auto-generated)
+  - [x] Date & Time of Order
+  - [x] Customer Name & Contact
+  - [x] Items Ordered + Quantities
+  - [x] Total Amount
+  - [x] Payment Method
+  - [x] Preferred Pick Up Date & Time
+  - [x] Order Status (Pending / Confirmed / Preparing / Pick up / Cancelled)
+  - [x] Admin can update order status via dropdown
+  - [x] Admin can delete/remove orders
+
+
+### Export / Download Orders
+  - [x] Export orders as CSV file (downloadable spreadsheet)
+
+
+### Business Analytics Dashboard
+Show the following charts and stats based on order data:
+  - [x] Total Revenue (all time + this month)
+  - [x] Total Number of Orders
+  - [x] Best-Selling Products (bar chart or ranked list)
+  - [x] Orders by Status (pie chart — Pending / Confirmed / Pick up / Cancelled)
+  - [x] Daily/Weekly Order Volume (line chart)
+  - [x] Average Order Value
+  - [x] Top Customers by order count (optional)
+
+
+---
+
+
+## ⚙️ TECHNICAL REQUIREMENTS
+
+
+- **Framework:** React (single artifact, no external router)
+- **Charts Library:** Use Recharts for analytics charts
+- **Data Storage:** Use React state + localStorage so orders persist across page refreshes
+- **Navigation:** Top navigation bar with links to all pages;
+- **Responsive:** Must work on mobile, tablet, and desktop
+- **Admin Access:** Hidden or separate nav item labeled "Admin" that asks for a password
+- **No backend needed** — all data stored in localStorage for now
+
+
+---
+
+
+
+
+
+
+## 📝 ADDITIONAL NOTES / SPECIAL REQUESTS
+
+
+[Write anything else you want — e.g.: 
+- "Include a photo gallery section on the Home page"
+- "Make the site bilingual — English and Filipino"
+
+
+---
+# ======= END OF PROMPT =======
+---
+
+
+---
+
+
+## 📌 QUICK REFERENCE — WHAT EACH PAGE DOES
+
+
+| Page | Purpose |
+|---|---|
+| **Home Page** | First impression — Hero, About, Why Us, Testimonials |
+| **Products & Services** | Full catalog with descriptions, prices, variants |
+| **Ordering / Checkout** | Customer fills order form; submits order |
+| **Admin Dashboard** | View all orders, update status, download CSV, see analytics |
+
+
+---
+
+
+## 💡 TIPS FOR BEST RESULTS
+
+
+- **The more detail you give, the better the output.** Don't leave brackets empty — fill in everything.
+- **For products**, write clear, appetizing descriptions. Good descriptions = better-looking product cards.
+- **For the color scheme**, you can say things like: "colors of a sunset", "tropical green and yellow", "earthy tones like coffee and cream".
+- **Admin password** — change it to something only you know before using the site for real.
+- **Want changes after?** Just tell Claude: *"Change the color to blue"* or *"Add a new product: Sapin-sapin, ₱200"* and it will update the artifact.
+- **For a real website**, copy the final code and host it on Netlify, Vercel, or GitHub Pages for free.
+
+
+---

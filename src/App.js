@@ -1,6 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import piayaNewImage from './assets/piaya-new.png';
+import piayaBigPackImage from './assets/piaya-big-pack.png';
+import piayaMediumPackImage from './assets/piaya-medium-pack.png';
+import piayaSmallPackImage from './assets/piaya-small-pack.png';
 import coconutBandiImage from './assets/coconut-bandi-final.png';
 import biscochoNewImage from './assets/biscocho-new.png';
 import biscochoOriginalMediumImage from './assets/biscocho-original-medium.png';
@@ -8,6 +11,9 @@ import biscochoOriginalLargeImage from './assets/biscocho-original-large.png';
 import biscochoGarlicMediumImage from './assets/biscocho-garlic-medium.png';
 import biscochoWewinsMediumImage from './assets/biscocho-wewins-medium.png';
 import peanutBandiNewImage from './assets/peanut-bandi-new.png';
+import peanutBandiBigPackImage from './assets/peanut-bandi-big-pack.png';
+import peanutBandiMediumPackImage from './assets/peanut-bandi-medium-pack.png';
+import peanutBandiSmallPackImage from './assets/peanut-bandi-small-pack.png';
 import mamonTostadoNewImage from './assets/mamon-tostado-new.png';
 import premiumPasalubongNewImage from './assets/premium-filipino-pasalubong-new.png';
 import traditionalBreadNewImage from './assets/traditional-filipino-bread-new.jpg';
@@ -34,6 +40,12 @@ import assortedSampalokCandyImage from './assets/assorted-sampalok-candy.png';
 import assortedSerafinaImage from './assets/assorted-serafina.png';
 import assortedButongButongImage from './assets/assorted-butong-butong.png';
 import assortedChicharonImage from './assets/assorted-chicharon.png';
+import washVariantImage from './Wash.PNG';
+import muscovadoVariantImage from './muscovado.PNG';
+import mamonMediumImage from './Medium.PNG';
+import mamonLargeImage from './Large.PNG';
+import ubeVariantImage from './Ube.PNG';
+import mangoVariantImage from './assets/mango-piaya.png';
 import {
   Bar,
   BarChart,
@@ -71,11 +83,15 @@ const products = [
     description:
       'Traditional flat pastry filled with muscovado sugar, made with a thin soft crust, a gentle crisp, and a sweet caramel-like center.',
     variants: ['Original', 'Ube', 'Mango'],
+    variantImages: {
+      Ube: ubeVariantImage,
+      Mango: mangoVariantImage,
+    },
     brands: ["Bongbong's", 'Merzci'],
     options: [
-      { label: 'Big pack', price: 90 },
-      { label: 'Medium pack', price: 50 },
-      { label: 'Small pack', price: 35 },
+      { label: 'Big pack', price: 90, image: piayaBigPackImage },
+      { label: 'Medium pack', price: 50, image: piayaMediumPackImage },
+      { label: 'Small pack', price: 35, image: piayaSmallPackImage },
     ],
     image: piayaNewImage,
   },
@@ -88,9 +104,9 @@ const products = [
     variants: ['Muscovado', 'Wash'],
     brands: ['Local Homemade Products'],
     options: [
-      { label: 'Big pack', price: 50 },
-      { label: 'Medium pack', price: 25 },
-      { label: 'Small pack', price: 10 },
+      { label: 'Big pack', price: 50, image: peanutBandiBigPackImage },
+      { label: 'Medium pack', price: 25, image: peanutBandiMediumPackImage },
+      { label: 'Small pack', price: 10, image: peanutBandiSmallPackImage },
     ],
     image: peanutBandiNewImage,
   },
@@ -101,6 +117,10 @@ const products = [
     description:
       'Traditional coconut delicacy with a chewy texture and rich muscovado sweetness from unrefined brown sugar.',
     variants: ['Muscovado', 'Wash'],
+    variantImages: {
+      Muscovado: muscovadoVariantImage,
+      Wash: washVariantImage,
+    },
     brands: ['Local Homemade'],
     options: [{ label: 'Per pack', price: 25 }],
     image: coconutBandiImage,
@@ -130,8 +150,8 @@ const products = [
     variants: ['Original'],
     brands: ["Bongbong's"],
     options: [
-      { label: 'Large', price: 140 },
-      { label: 'Medium', price: 70 },
+      { label: 'Medium', price: 70, image: mamonMediumImage },
+      { label: 'Large', price: 140, image: mamonLargeImage },
     ],
     image: mamonTostadoNewImage,
   },
@@ -460,6 +480,31 @@ function HomePage({ onOrder, onShop }) {
 }
 
 function ProductsPage({ onOrder }) {
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const openImagePreview = (src, alt) => {
+    setPreviewImage({ src, alt });
+  };
+
+  const closeImagePreview = () => {
+    setPreviewImage(null);
+  };
+
+  useEffect(() => {
+    if (!previewImage) {
+      return undefined;
+    }
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeImagePreview();
+      }
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [previewImage]);
+
   return (
     <main className="page-container">
       <div className="page-heading">
@@ -485,17 +530,38 @@ function ProductsPage({ onOrder }) {
                 <span className="stock-pill">Available</span>
               </div>
               <p className="product-description">{product.description}</p>
-              <ProductMeta label="Variants" values={product.variants} />
+              <ProductMeta
+                label="Variants"
+                values={product.variants}
+                valueImages={product.variantImages}
+                onImageClick={openImagePreview}
+                imageAltPrefix={product.name}
+              />
               <ProductMeta label="Brands" values={product.brands} />
               {product.id === 'premium-pasalubong' ||
+              product.id === 'piaya' ||
+              product.id === 'peanut-bandi' ||
               product.id === 'biscocho' ||
+              product.id === 'mamon-tostado' ||
               product.id === 'traditional-bread' ||
               product.id === 'assorted-sweets' ? (
                 <div className="price-list premium-price-list">
                   {product.options.map((option) => (
                     <div className="premium-option-row" key={option.label}>
                       <span className="premium-option-name">
-                        <img src={option.image || product.image} alt={option.label} />
+                        <button
+                          className="image-preview-trigger"
+                          type="button"
+                          onClick={() =>
+                            openImagePreview(
+                              option.image || product.image,
+                              `${product.name} - ${option.label}`,
+                            )
+                          }
+                          aria-label={`View ${product.name} ${option.label} image`}
+                        >
+                          <img src={option.image || product.image} alt={option.label} />
+                        </button>
                         <span>{option.label}</span>
                       </span>
                       <strong>{peso.format(option.price)}</strong>
@@ -518,18 +584,51 @@ function ProductsPage({ onOrder }) {
           </article>
         ))}
       </div>
+      {previewImage && (
+        <div
+          className="image-preview-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={previewImage.alt}
+          onClick={closeImagePreview}
+        >
+          <div className="image-preview-content" onClick={(event) => event.stopPropagation()}>
+            <button className="image-preview-close" type="button" onClick={closeImagePreview}>
+              Close
+            </button>
+            <img src={previewImage.src} alt={previewImage.alt} />
+            <p>{previewImage.alt}</p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
 
-function ProductMeta({ label, values }) {
+function ProductMeta({ label, values, valueImages, onImageClick, imageAltPrefix = '' }) {
   return (
     <div className="meta-block">
       <strong>{label}</strong>
       <div>
-        {values.map((value) => (
-          <span key={value}>{value}</span>
-        ))}
+        {values.map((value) => {
+          const valueImage = valueImages?.[value];
+
+          return (
+            <span className={valueImage ? 'meta-chip-with-image' : ''} key={value}>
+              {valueImage && (
+                <button
+                  className="meta-image-trigger"
+                  type="button"
+                  onClick={() => onImageClick?.(valueImage, `${imageAltPrefix} - ${value}`)}
+                  aria-label={`View ${value} image`}
+                >
+                  <img src={valueImage} alt={value} />
+                </button>
+              )}
+              {value}
+            </span>
+          );
+        })}
       </div>
     </div>
   );

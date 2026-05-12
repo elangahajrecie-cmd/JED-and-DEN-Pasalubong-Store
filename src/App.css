@@ -456,6 +456,39 @@ dd {
   font-size: 0.78rem;
 }
 
+.meta-chip-with-image {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.meta-chip-with-image img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid rgba(124, 79, 49, 0.16);
+  border-radius: 999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.meta-image-trigger,
+.image-preview-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.meta-image-trigger:focus-visible,
+.image-preview-trigger:focus-visible {
+  outline: 2px solid var(--brown-500);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
 .price-list {
   margin: 1rem 0;
 }
@@ -503,6 +536,56 @@ dd {
   color: var(--brown-900);
   font-size: 0.8rem;
   white-space: nowrap;
+}
+
+.image-preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(36, 24, 16, 0.62);
+}
+
+.image-preview-content {
+  width: min(92vw, 640px);
+  max-height: 92vh;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+  background: #fff9f1;
+  border: 1px solid rgba(124, 79, 49, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 22px 45px rgba(36, 24, 16, 0.2);
+}
+
+.image-preview-close {
+  justify-self: end;
+  min-height: auto;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(124, 79, 49, 0.22);
+  background: #fff;
+  color: var(--brown-900);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.image-preview-content img {
+  width: 100%;
+  max-height: 74vh;
+  object-fit: contain;
+  border: 1px solid rgba(124, 79, 49, 0.16);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.image-preview-content p {
+  margin: 0;
+  color: var(--brown-900);
+  font-size: 0.82rem;
+  line-height: 1.2;
 }
 
 .small-primary {
